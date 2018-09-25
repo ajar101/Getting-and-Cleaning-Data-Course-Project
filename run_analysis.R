@@ -58,8 +58,10 @@ TidyData$activity <- factor(TidyData$activity, levels = activities[,1], labels =
 coloumn <- colnames(TidyData)
 defLabel <- c("^t", "^f", "Acc", "Gyro", "Mag", "Freq", "mean", "std", "BodyBody", "[\\(\\)-]")
 trueLabel <- c("timeDomain", "frequencyDomain", "Accelerometer", "Gyroscope", "Magnitude", "Frequency", "Mean", "StandardDeviation", "Body", "")
+
 # replace inappropriate labels with descriptive variable using stri_replace_all_regex function in stringi package
 coloumn <- stri_replace_all_regex(coloumn, defLabel, trueLabel, F, list(case_insensitive = TRUE))
+
 # Use new labels as coloumn names
 colnames(TidyData) <- coloumn
 
